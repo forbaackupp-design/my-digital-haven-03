@@ -40,12 +40,13 @@ const AboutSection = () => {
               initial={{ opacity: 0, y: 96, scale: 0.92, filter: "blur(6px)" }}
               whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.85, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ duration: 0.9, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -10, scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 18 } }}
               className="glow-card bg-background rounded-2xl p-8 border border-border/60 shadow-sm cursor-default"
             >
               <motion.div
                 whileHover={{ rotate: 10, scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 350, damping: 14 }}
                 className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5"
               >
                 <card.icon className="text-primary" size={24} />

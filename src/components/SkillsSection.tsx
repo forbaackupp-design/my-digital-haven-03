@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  { name: "HTML & CSS", level: 85 },
-  { name: "C++", level: 75 },
-  { name: "Python", level: 80 },
-  { name: "Java", level: 55 },
-  { name: "Kali Linux", level: 35 },
+  { name: "HTML & CSS", level: 85, icon: "🌐" },
+  { name: "C++", level: 75, icon: "⚙️" },
+  { name: "Python", level: 80, icon: "🐍" },
+  { name: "Java", level: 55, icon: "☕" },
+  { name: "Kali Linux", level: 35, icon: "🐧" },
 ];
 
 const SkillsSection = () => {
@@ -31,12 +31,22 @@ const SkillsSection = () => {
               viewport={{ once: true, amount: 0.55 }}
               transition={{ duration: 0.75, delay: i * 0.11, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ x: 6 }}
+              className="group"
             >
               <div className="flex justify-between mb-2">
-                <span className="font-body font-medium text-foreground">{skill.name}</span>
+                <span className="font-body font-medium text-foreground flex items-center gap-2">
+                  <motion.span
+                    className="inline-block text-lg"
+                    whileHover={{ scale: 1.35, rotate: 12 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 12 }}
+                  >
+                    {skill.icon}
+                  </motion.span>
+                  {skill.name}
+                </span>
                 <span className="font-body text-sm text-muted-foreground">{skill.level}%</span>
               </div>
-              <div className="skill-bar">
+              <div className="skill-bar group-hover:shadow-[0_0_14px_hsl(var(--primary)/0.35)] transition-shadow duration-300">
                 <motion.div
                   className="skill-bar-fill"
                   initial={{ width: 0 }}

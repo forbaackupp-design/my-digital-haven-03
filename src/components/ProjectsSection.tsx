@@ -42,8 +42,8 @@ const ProjectsSection = () => {
               initial={{ opacity: 0, y: 104, scale: 0.92, filter: "blur(6px)" }}
               whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
               viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.9, delay: i * 0.13, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ duration: 0.95, delay: i * 0.16, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ y: -10, scale: 1.03, transition: { type: "spring", stiffness: 300, damping: 18 } }}
               className="glow-card group bg-background rounded-2xl p-8 border border-border/60 shadow-sm"
             >
               <h3 className="font-display text-xl font-semibold text-foreground mb-4">
