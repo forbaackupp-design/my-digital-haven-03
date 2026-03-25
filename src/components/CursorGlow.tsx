@@ -1,17 +1,33 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 const CursorGlow = () => {
-  const [pos, setPos] = useState({ x: -100, y: -100 });
-  const [visible, setVisible] = useState(false);
+  const glowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const el = glowRef.current;
+    if (!el) return;
+
+    let x = -200;
+    let y = -200;
+    let visible = false;
+
     const onMove = (e: MouseEvent) => {
-      setPos({ x: e.clientX, y: e.clientY });
-      if (!visible) setVisible(true);
+      x = e.clientX;
+      y = e.clientY;
+      if (!visible) {
+        visible = true;
+        el.style.opacity = "1";
+      }
+      el.style.transform = `translate(${x - 150}px, ${y - 150}px)`;
     };
-    const onLeave = () => setVisible(false);
-    const onEnter = () => setVisible(true);
+    const onLeave = () => {
+      visible = false;
+      el.style.opacity = "0";
+    };
+    const onEnter = () => {
+      visible = true;
+      el.style.opacity = "1";
+    };
 
     window.addEventListener("mousemove", onMove);
     document.addEventListener("mouseleave", onLeave);
@@ -21,20 +37,16 @@ const CursorGlow = () => {
       document.removeEventListener("mouseleave", onLeave);
       document.removeEventListener("mouseenter", onEnter);
     };
-  }, [visible]);
+  }, []);
 
   return (
-    <motion.div
-      className="pointer-events-none fixed top-0 left-0 z-[9999]"
-      animate={{
-        x: pos.x - 200,
-        y: pos.y - 200,
-        opacity: visible ? 1 : 0,
-      }}
-      transition={{ type: "spring", damping: 25, stiffness: 200, mass: 0.5 }}
+    <div
+      ref={glowRef}
+      className="pointer-events-none fixed top-0 left-0 z-[9999] opacity-0"
+      style={{ transition: "opacity 0.2s ease" }}
     >
-      <div className="w-[400px] h-[400px] rounded-full bg-primary/15 blur-[80px] dark:bg-primary/20" />
-    </motion.div>
+      <div className="w-[300px] h-[300px] rounded-full bg-primary/15 blur-[60px]" />
+    </div>
   );
 };
 
