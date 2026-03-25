@@ -26,7 +26,7 @@ const HeroSection = () => {
               href="#projects"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center justify-center h-12 px-8 rounded-lg bg-primary text-primary-foreground font-body font-medium hover:opacity-90 transition-opacity"
+              className="glow-btn inline-flex items-center justify-center h-12 px-8 rounded-lg bg-primary text-primary-foreground font-body font-medium hover:opacity-90 transition-opacity"
             >
               View Projects
             </motion.a>
@@ -34,7 +34,7 @@ const HeroSection = () => {
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center justify-center h-12 px-8 rounded-lg border-2 border-secondary text-secondary font-body font-medium hover:bg-secondary hover:text-secondary-foreground transition-colors"
+              className="glow-btn inline-flex items-center justify-center h-12 px-8 rounded-lg border-2 border-secondary text-secondary font-body font-medium hover:bg-secondary hover:text-secondary-foreground transition-colors"
             >
               Contact Me
             </motion.a>
@@ -56,7 +56,7 @@ const HeroSection = () => {
               height={512}
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="relative w-full h-full object-cover rounded-full border-4 border-primary/30"
+              className="relative w-full h-full object-cover rounded-full border-4 border-primary/30 hover:shadow-[0_0_30px_hsl(16_80%_55%/0.4)]  transition-shadow duration-500"
             />
           </div>
         </motion.div>

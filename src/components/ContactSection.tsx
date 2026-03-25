@@ -72,7 +72,7 @@ const ContactSection = () => {
                 type={field === "email" ? "email" : "text"}
                 value={form[field]}
                 onChange={handleChange}
-                className="w-full h-12 px-4 rounded-xl bg-card border border-border font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
+                className="w-full h-12 px-4 rounded-xl bg-card border border-border font-body text-foreground placeholder:text-muted-foreground focus:outline-none glow-input transition-shadow"
                 placeholder={`Your ${field}`}
               />
               {errors[field] && (
@@ -94,7 +94,7 @@ const ContactSection = () => {
               rows={5}
               value={form.message}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-xl bg-card border border-border font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow resize-none"
+              className="w-full px-4 py-3 rounded-xl bg-card border border-border font-body text-foreground placeholder:text-muted-foreground focus:outline-none glow-input transition-shadow resize-none"
               placeholder="Your message"
             />
             {errors.message && (
@@ -104,7 +104,7 @@ const ContactSection = () => {
 
           <button
             type="submit"
-            className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-xl bg-primary text-primary-foreground font-body font-medium hover:opacity-90 transition-opacity"
+            className="glow-btn inline-flex items-center justify-center gap-2 h-12 px-8 rounded-xl bg-primary text-primary-foreground font-body font-medium hover:opacity-90 transition-opacity"
           >
             Send Message <Send size={16} />
           </button>
