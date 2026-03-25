@@ -104,7 +104,7 @@ const ContactSection = () => {
 
           <button
             type="submit"
-            className="inline-flex items-center justify-center gap-2 h-12 px-8 rounded-xl bg-primary text-primary-foreground font-body font-medium hover:opacity-90 transition-opacity"
+            className="glow-btn inline-flex items-center justify-center gap-2 h-12 px-8 rounded-xl bg-primary text-primary-foreground font-body font-medium hover:opacity-90 transition-opacity"
           >
             Send Message <Send size={16} />
           </button>
