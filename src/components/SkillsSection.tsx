@@ -1,5 +1,21 @@
 import { motion } from "framer-motion";
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+const barVariants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
+};
+
 const skills = [
   { name: "HTML & CSS", level: 85 },
   { name: "C++", level: 75 },
@@ -13,22 +29,26 @@ const SkillsSection = () => {
     <section id="skills" className="section-padding">
       <div className="max-w-4xl mx-auto">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="font-display text-4xl md:text-5xl font-bold text-center mb-16"
         >
           My <span className="gradient-text">Skills</span>
         </motion.h2>
 
-        <div className="space-y-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          className="space-y-8"
+        >
           {skills.map((skill, i) => (
             <motion.div
               key={skill.name}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              variants={barVariants}
               whileHover={{ x: 6 }}
             >
               <div className="flex justify-between mb-2">
@@ -46,7 +66,7 @@ const SkillsSection = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
