@@ -3,22 +3,22 @@ import { ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    title: "Weather Dashboard",
+    title: "Password Strength Checker",
     description:
-      "A real-time weather app built with React and OpenWeatherMap API. Features include 5-day forecasts, geolocation, and dynamic backgrounds.",
-    tags: ["React", "API", "CSS"],
+      "A tool that analyzes password strength based on length, complexity, and common vulnerabilities. Helps users create secure passwords.",
+    tags: ["Python", "Security"],
   },
   {
-    title: "Task Manager Pro",
+    title: "Port Scanner",
     description:
-      "A full-featured task management app with drag-and-drop, categories, due dates, and local storage persistence.",
-    tags: ["JavaScript", "HTML", "CSS"],
+      "A network scanning tool that detects open ports on a target system, helping identify potential security risks.",
+    tags: ["Python", "Networking"],
   },
   {
-    title: "E-Commerce Storefront",
+    title: "Basic Vulnerability Scanner",
     description:
-      "A responsive online store with product filtering, cart functionality, and checkout flow. Built with React and Tailwind CSS.",
-    tags: ["React", "Tailwind", "TypeScript"],
+      "A simple tool that scans websites for common vulnerabilities like open ports or weak configurations.",
+    tags: ["Python", "Cybersecurity"],
   },
 ];
 
@@ -43,7 +43,8 @@ const ProjectsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className="group bg-background rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1"
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="group bg-background rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all"
             >
               <div className="flex items-start justify-between mb-4">
                 <h3 className="font-display text-xl font-semibold text-foreground">
