@@ -41,7 +41,7 @@ const AboutSection = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="glow-card bg-background rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow cursor-default"
+              className="glow-card bg-background rounded-2xl p-8 border border-border/60 shadow-sm cursor-default"
             >
               <motion.div
                 whileHover={{ rotate: 10, scale: 1.1 }}
