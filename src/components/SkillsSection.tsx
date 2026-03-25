@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  { name: "HTML & CSS", level: 90 },
-  { name: "JavaScript", level: 85 },
-  { name: "React", level: 80 },
-  { name: "TypeScript", level: 75 },
-  { name: "Node.js", level: 70 },
-  { name: "Python", level: 65 },
+  { name: "HTML & CSS", level: 85 },
+  { name: "C++", level: 75 },
+  { name: "Python", level: 80 },
+  { name: "Java", level: 55 },
+  { name: "Kali Linux", level: 35 },
 ];
 
 const SkillsSection = () => {
@@ -30,6 +29,7 @@ const SkillsSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
+              whileHover={{ x: 6 }}
             >
               <div className="flex justify-between mb-2">
                 <span className="font-body font-medium text-foreground">{skill.name}</span>

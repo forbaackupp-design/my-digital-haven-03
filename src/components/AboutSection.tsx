@@ -5,17 +5,17 @@ const cards = [
   {
     icon: User,
     title: "Who I Am",
-    text: "A creative and detail-oriented computer science student who loves turning ideas into interactive web applications.",
+    text: "I am a dedicated BCA student with a strong interest in cybersecurity and ethical hacking. I am passionate about understanding system vulnerabilities and building secure, reliable digital environments.",
   },
   {
     icon: GraduationCap,
     title: "Education",
-    text: "B.Sc. Computer Science — University of Technology (2022–2026). Dean's List recipient with a focus on full-stack development.",
+    text: "Bachelor of Computer Applications (BCA) — Dr. Harisingh Gour Vishwavidyalaya. Currently pursuing my degree with a focus on cybersecurity, networking, and programming fundamentals.",
   },
   {
     icon: Target,
     title: "Career Goals",
-    text: "Aspiring to become a full-stack engineer at a product-driven company, building tools that make people's lives easier.",
+    text: "Aspiring to build a career in cybersecurity as an ethical hacker or security analyst, with a focus on identifying vulnerabilities, strengthening system security, and protecting against cyber threats using modern security tools and techniques.",
   },
 ];
 
@@ -40,11 +40,15 @@ const AboutSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className="bg-background rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow"
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="bg-background rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow cursor-default"
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+              <motion.div
+                whileHover={{ rotate: 10, scale: 1.1 }}
+                className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5"
+              >
                 <card.icon className="text-primary" size={24} />
-              </div>
+              </motion.div>
               <h3 className="font-display text-xl font-semibold mb-3 text-foreground">
                 {card.title}
               </h3>
