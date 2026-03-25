@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
 
 const projects = [
   {
@@ -46,15 +45,9 @@ const ProjectsSection = () => {
               whileHover={{ y: -8, scale: 1.02 }}
               className="glow-card group bg-background rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all"
             >
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="font-display text-xl font-semibold text-foreground">
-                  {project.title}
-                </h3>
-                <ExternalLink
-                  size={18}
-                  className="text-muted-foreground group-hover:text-primary transition-colors mt-1"
-                />
-              </div>
+              <h3 className="font-display text-xl font-semibold text-foreground mb-4">
+                {project.title}
+              </h3>
               <p className="font-body text-muted-foreground leading-relaxed mb-6">
                 {project.description}
               </p>

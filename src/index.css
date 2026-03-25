@@ -159,6 +159,13 @@
     text-shadow: 0 0 12px hsl(var(--primary) / 0.6);
   }
 
+  /* Glow for profile image */
+  .glow-profile:hover {
+    box-shadow:
+      0 0 30px hsl(var(--primary) / 0.4),
+      0 0 60px hsl(var(--primary) / 0.2);
+  }
+
   /* Glow for skill bars on hover */
   .skill-bar:hover .skill-bar-fill {
     box-shadow: 0 0 12px hsl(var(--primary) / 0.5);

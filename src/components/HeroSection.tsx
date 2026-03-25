@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import profileImg from "@/assets/profile.jpg";
+import profileImg from "@/assets/profile.png";
 
 const HeroSection = () => {
   return (
@@ -56,7 +56,7 @@ const HeroSection = () => {
               height={512}
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="relative w-full h-full object-cover rounded-full border-4 border-primary/30 hover:shadow-[0_0_30px_hsl(16_80%_55%/0.4)]  transition-shadow duration-500"
+              className="glow-profile relative w-full h-full object-cover rounded-full border-4 border-primary/30 transition-shadow duration-500"
             />
           </div>
         </motion.div>
