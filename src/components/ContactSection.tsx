@@ -94,7 +94,7 @@ const ContactSection = () => {
               rows={5}
               value={form.message}
               onChange={handleChange}
-              className="w-full px-4 py-3 rounded-xl bg-card border border-border font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow resize-none"
+              className="w-full px-4 py-3 rounded-xl bg-card border border-border font-body text-foreground placeholder:text-muted-foreground focus:outline-none glow-input transition-shadow resize-none"
               placeholder="Your message"
             />
             {errors.message && (
