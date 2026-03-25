@@ -43,7 +43,7 @@ const ProjectsSection = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
               whileHover={{ y: -8, scale: 1.02 }}
-              className="glow-card group bg-background rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all"
+              className="glow-card group bg-background rounded-2xl p-8 border border-border/60 shadow-sm"
             >
               <h3 className="font-display text-xl font-semibold text-foreground mb-4">
                 {project.title}
