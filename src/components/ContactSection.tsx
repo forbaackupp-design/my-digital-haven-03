@@ -72,7 +72,7 @@ const ContactSection = () => {
                 type={field === "email" ? "email" : "text"}
                 value={form[field]}
                 onChange={handleChange}
-                className="w-full h-12 px-4 rounded-xl bg-card border border-border font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
+                className="w-full h-12 px-4 rounded-xl bg-card border border-border font-body text-foreground placeholder:text-muted-foreground focus:outline-none glow-input transition-shadow"
                 placeholder={`Your ${field}`}
               />
               {errors[field] && (
