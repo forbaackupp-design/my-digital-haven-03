@@ -34,7 +34,7 @@ const HeroSection = () => {
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center justify-center h-12 px-8 rounded-lg border-2 border-secondary text-secondary font-body font-medium hover:bg-secondary hover:text-secondary-foreground transition-colors"
+              className="glow-btn inline-flex items-center justify-center h-12 px-8 rounded-lg border-2 border-secondary text-secondary font-body font-medium hover:bg-secondary hover:text-secondary-foreground transition-colors"
             >
               Contact Me
             </motion.a>
