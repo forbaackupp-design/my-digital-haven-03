@@ -54,7 +54,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setDark(!dark)}
-              className="p-2 rounded-lg bg-muted text-foreground hover:bg-primary/10 transition-colors"
+              className="p-2 rounded-lg bg-muted text-foreground hover:bg-primary/10 glow-btn transition-colors"
               aria-label="Toggle dark mode"
             >
               {dark ? <Sun size={18} /> : <Moon size={18} />}
