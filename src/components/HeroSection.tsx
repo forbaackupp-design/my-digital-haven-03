@@ -26,7 +26,7 @@ const HeroSection = () => {
               href="#projects"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center justify-center h-12 px-8 rounded-lg bg-primary text-primary-foreground font-body font-medium hover:opacity-90 transition-opacity"
+              className="glow-btn inline-flex items-center justify-center h-12 px-8 rounded-lg bg-primary text-primary-foreground font-body font-medium hover:opacity-90 transition-opacity"
             >
               View Projects
             </motion.a>
