@@ -54,22 +54,34 @@ const HeroSection = () => {
         transition={{ duration: 0.7 }}
         className="section-padding relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center pt-24 text-center"
       >
-        <p className="mb-4 text-sm font-body font-medium uppercase tracking-widest text-primary">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mb-4 text-sm font-body font-medium uppercase tracking-widest text-primary"
+        >
           Hello, I'm
-        </p>
-        <h1 className="mb-6 font-display text-5xl font-bold leading-tight text-foreground md:text-6xl lg:text-7xl">
-          Kishan <span className="gradient-text">Pandey</span>
+        </motion.p>
+        <h1 className="mb-6 min-h-[1.2em] font-display text-5xl font-bold leading-tight text-foreground md:text-6xl lg:text-7xl">
+          <span className="gradient-text">{typedName}</span>
+          <span className="ml-1 inline-block animate-pulse text-primary">|</span>
         </h1>
-        <p className="mb-6 min-h-9 font-display text-2xl font-semibold tracking-wide text-primary md:text-3xl">
-          <span aria-live="polite">{typedName}</span>
-          <span className="ml-1 inline-block animate-pulse text-accent">|</span>
-        </p>
-        <p className="mb-8 max-w-2xl font-body text-lg text-muted-foreground">
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mb-8 max-w-2xl font-body text-lg text-muted-foreground"
+        >
           A passionate cybersecurity enthusiast &amp; computer science student
           specializing in ethical hacking, network security, and building secure
           digital environments.
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-4">
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="flex flex-wrap items-center justify-center gap-4"
+        >
           <motion.a
             href="#projects"
             whileHover={{ scale: 1.05 }}
@@ -86,7 +98,7 @@ const HeroSection = () => {
           >
             Contact Me
           </motion.a>
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );
