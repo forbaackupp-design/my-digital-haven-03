@@ -129,4 +129,45 @@
     @apply h-full rounded-full;
     background: var(--hero-gradient);
   }
+
+  /* Glow hover for cards */
+  .glow-card {
+    @apply relative overflow-hidden;
+    transition: box-shadow 0.4s ease;
+  }
+  .glow-card:hover {
+    box-shadow:
+      0 0 20px hsl(var(--primary) / 0.25),
+      0 0 60px hsl(var(--primary) / 0.1);
+  }
+
+  /* Glow hover for buttons */
+  .glow-btn {
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+  }
+  .glow-btn:hover {
+    box-shadow:
+      0 0 15px hsl(var(--primary) / 0.4),
+      0 0 45px hsl(var(--primary) / 0.15);
+  }
+
+  /* Glow hover for nav links */
+  .glow-link {
+    transition: text-shadow 0.3s ease, color 0.3s ease;
+  }
+  .glow-link:hover {
+    text-shadow: 0 0 12px hsl(var(--primary) / 0.6);
+  }
+
+  /* Glow for skill bars on hover */
+  .skill-bar:hover .skill-bar-fill {
+    box-shadow: 0 0 12px hsl(var(--primary) / 0.5);
+  }
+
+  /* Glow border for form inputs */
+  .glow-input:focus {
+    box-shadow:
+      0 0 0 2px hsl(var(--ring)),
+      0 0 20px hsl(var(--primary) / 0.2);
+  }
 }
