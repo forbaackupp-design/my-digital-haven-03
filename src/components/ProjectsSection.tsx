@@ -1,5 +1,22 @@
 import { motion } from "framer-motion";
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.18 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 70, scale: 0.93 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.65, type: "tween" as const, ease: "easeOut" as const },
+  },
+};
+
 const projects = [
   {
     title: "Password Strength Checker",
@@ -26,22 +43,26 @@ const ProjectsSection = () => {
     <section id="projects" className="section-padding section-alt">
       <div className="max-w-6xl mx-auto">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="font-display text-4xl md:text-5xl font-bold text-center mb-16"
         >
           My <span className="gradient-text">Projects</span>
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
           {projects.map((project, i) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15 }}
+              variants={cardVariants}
               whileHover={{ y: -8, scale: 1.02 }}
               className="glow-card group bg-background rounded-2xl p-8 border border-border/60 shadow-sm"
             >
@@ -63,7 +84,7 @@ const ProjectsSection = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

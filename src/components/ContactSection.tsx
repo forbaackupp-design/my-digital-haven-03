@@ -43,9 +43,10 @@ const ContactSection = () => {
     <section id="contact" className="section-padding">
       <div className="max-w-2xl mx-auto">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="font-display text-4xl md:text-5xl font-bold text-center mb-16"
         >
           Get In <span className="gradient-text">Touch</span>
@@ -53,9 +54,10 @@ const ContactSection = () => {
 
         <motion.form
           onSubmit={handleSubmit}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="space-y-6"
         >
           {(["name", "email"] as const).map((field) => (
