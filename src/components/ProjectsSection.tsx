@@ -1,22 +1,5 @@
 import { motion } from "framer-motion";
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.18 },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 70, scale: 0.93 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.65, type: "tween" as const, ease: "easeOut" as const },
-  },
-};
-
 const projects = [
   {
     title: "Password Strength Checker",
@@ -52,17 +35,14 @@ const ProjectsSection = () => {
           My <span className="gradient-text">Projects</span>
         </motion.h2>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, i) => (
             <motion.div
               key={project.title}
-              variants={cardVariants}
+              initial={{ opacity: 0, y: 104, scale: 0.92, filter: "blur(6px)" }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.9, delay: i * 0.13, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -8, scale: 1.02 }}
               className="glow-card group bg-background rounded-2xl p-8 border border-border/60 shadow-sm"
             >
@@ -84,7 +64,7 @@ const ProjectsSection = () => {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

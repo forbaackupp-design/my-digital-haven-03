@@ -1,23 +1,6 @@
 import { motion } from "framer-motion";
 import { GraduationCap, Target, User } from "lucide-react";
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.2 },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 60, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.6, type: "tween" as const, ease: "easeOut" as const },
-  },
-};
-
 const cards = [
   {
     icon: User,
@@ -50,17 +33,14 @@ const AboutSection = () => {
           About <span className="gradient-text">Me</span>
         </motion.h2>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-          className="grid md:grid-cols-3 gap-8"
-        >
+        <div className="grid md:grid-cols-3 gap-8">
           {cards.map((card, i) => (
             <motion.div
               key={card.title}
-              variants={cardVariants}
+              initial={{ opacity: 0, y: 96, scale: 0.92, filter: "blur(6px)" }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.85, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ y: -8, scale: 1.02 }}
               className="glow-card bg-background rounded-2xl p-8 border border-border/60 shadow-sm cursor-default"
             >
@@ -78,7 +58,7 @@ const AboutSection = () => {
               </p>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

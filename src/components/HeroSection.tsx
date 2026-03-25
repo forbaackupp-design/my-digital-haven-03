@@ -1,29 +1,58 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import profileImg from "@/assets/profile.png";
 
 const HeroSection = () => {
+  const heroName = "Kishan Pandey";
+  const [typedName, setTypedName] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    let timeoutId: number;
+
+    if (!isDeleting && typedName.length < heroName.length) {
+      timeoutId = window.setTimeout(() => {
+        setTypedName(heroName.slice(0, typedName.length + 1));
+      }, 110);
+    } else if (!isDeleting && typedName.length === heroName.length) {
+      timeoutId = window.setTimeout(() => {
+        setIsDeleting(true);
+      }, 1000);
+    } else if (isDeleting && typedName.length > 0) {
+      timeoutId = window.setTimeout(() => {
+        setTypedName(heroName.slice(0, typedName.length - 1));
+      }, 70);
+    } else {
+      timeoutId = window.setTimeout(() => {
+        setIsDeleting(false);
+      }, 280);
+    }
+
+    return () => window.clearTimeout(timeoutId);
+  }, [heroName, isDeleting, typedName]);
+
   return (
-    <section id="home" className="relative min-h-screen overflow-hidden pt-24">
+    <section id="home" className="relative min-h-screen overflow-hidden">
       <div className="absolute inset-0">
         <img
           src={profileImg}
           alt="Kishan Pandey portrait"
-          className="h-full w-full object-contain object-top"
+          className="h-full w-full object-contain object-top md:object-center"
           loading="eager"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-background/55" />
-        <div className="absolute inset-y-0 left-0 w-[40%] bg-gradient-to-r from-background via-background/90 to-transparent" />
-        <div className="absolute inset-y-0 right-0 w-[40%] bg-gradient-to-l from-background via-background/90 to-transparent" />
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background via-background/90 to-transparent" />
+        <div className="absolute inset-0 bg-background/50" />
+        <div className="absolute inset-y-0 left-0 w-[46%] bg-gradient-to-r from-background via-background/90 to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-[46%] bg-gradient-to-l from-background via-background/90 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/95 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-background via-background/95 to-transparent" />
       </div>
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="section-padding relative z-10 mx-auto flex min-h-[calc(100vh-6rem)] max-w-5xl flex-col items-center justify-center text-center"
+        className="section-padding relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center pt-24 text-center"
       >
         <p className="mb-4 text-sm font-body font-medium uppercase tracking-widest text-primary">
           Hello, I'm
@@ -31,6 +60,10 @@ const HeroSection = () => {
         <h1 className="mb-6 font-display text-5xl font-bold leading-tight text-foreground md:text-6xl lg:text-7xl">
           Kishan <span className="gradient-text">Pandey</span>
         </h1>
+        <p className="mb-6 min-h-9 font-display text-2xl font-semibold tracking-wide text-primary md:text-3xl">
+          <span aria-live="polite">{typedName}</span>
+          <span className="ml-1 inline-block animate-pulse text-accent">|</span>
+        </p>
         <p className="mb-8 max-w-2xl font-body text-lg text-muted-foreground">
           A passionate cybersecurity enthusiast &amp; computer science student
           specializing in ethical hacking, network security, and building secure
