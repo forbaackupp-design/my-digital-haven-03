@@ -37,7 +37,7 @@ const HeroSection = () => {
         <img
           src={profileImg}
           alt="Kishan Pandey portrait"
-          className="h-full w-full object-contain object-top md:object-center"
+          className="h-full w-full object-cover object-center"
           loading="eager"
           fetchPriority="high"
         />
