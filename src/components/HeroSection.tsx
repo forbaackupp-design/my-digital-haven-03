@@ -52,7 +52,7 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="section-padding relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center pt-24 text-center"
+        className="section-padding relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-4 pt-20 md:pt-24 text-center"
       >
         <motion.p
           initial={{ opacity: 0, y: 10 }}
