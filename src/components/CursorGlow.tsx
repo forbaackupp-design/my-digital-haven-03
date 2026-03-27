@@ -4,6 +4,10 @@ const CursorGlow = () => {
   const glowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Disable on mobile/touch devices
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768;
+    if (isTouchDevice) return;
+
     const el = glowRef.current;
     if (!el) return;
 
@@ -18,7 +22,7 @@ const CursorGlow = () => {
         visible = true;
         el.style.opacity = "1";
       }
-      el.style.transform = `translate(${x - 150}px, ${y - 150}px)`;
+      el.style.transform = `translate(${x - 100}px, ${y - 100}px)`;
     };
     const onLeave = () => {
       visible = false;
@@ -42,10 +46,10 @@ const CursorGlow = () => {
   return (
     <div
       ref={glowRef}
-      className="pointer-events-none fixed top-0 left-0 z-[9999] opacity-0"
+      className="pointer-events-none fixed top-0 left-0 z-[9999] opacity-0 hidden md:block"
       style={{ transition: "opacity 0.2s ease" }}
     >
-      <div className="w-[300px] h-[300px] rounded-full bg-primary/15 blur-[60px]" />
+      <div className="w-[200px] h-[200px] rounded-full bg-primary/15 blur-[50px]" />
     </div>
   );
 };

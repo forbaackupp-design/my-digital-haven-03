@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 
 const skills = [
+  { name: "C", level: 90, icon: "🔧" },
   { name: "HTML & CSS", level: 85, icon: "🌐" },
-  { name: "C++", level: 75, icon: "⚙️" },
   { name: "Python", level: 80, icon: "🐍" },
-  { name: "Java", level: 55, icon: "☕" },
+  { name: "C++", level: 75, icon: "⚙️" },
+  { name: "Java", level: 55, icon: "♨️" },
   { name: "Kali Linux", level: 35, icon: "🐧" },
 ];
 
@@ -30,8 +31,8 @@ const SkillsSection = () => {
               whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
               viewport={{ once: true, amount: 0.55 }}
               transition={{ duration: 0.75, delay: i * 0.11, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ x: 6 }}
-              className="group"
+              whileHover={{ x: 6, scale: 1.02, transition: { type: "spring", stiffness: 300, damping: 20 } }}
+              className="group cursor-default"
             >
               <div className="flex justify-between mb-2">
                 <span className="font-body font-medium text-foreground flex items-center gap-2">
@@ -44,7 +45,13 @@ const SkillsSection = () => {
                   </motion.span>
                   {skill.name}
                 </span>
-                <span className="font-body text-sm text-muted-foreground">{skill.level}%</span>
+                <motion.span
+                  className="font-body text-sm text-muted-foreground"
+                  whileHover={{ scale: 1.15, color: "hsl(16 80% 55%)" }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                >
+                  {skill.level}%
+                </motion.span>
               </div>
               <div className="skill-bar group-hover:shadow-[0_0_14px_hsl(var(--primary)/0.35)] transition-shadow duration-300">
                 <motion.div

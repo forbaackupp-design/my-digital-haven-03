@@ -42,17 +42,17 @@ const HeroSection = () => {
           fetchPriority="high"
         />
         <div className="absolute inset-0 bg-background/50" />
-        <div className="absolute inset-y-0 left-0 w-[46%] bg-gradient-to-r from-background via-background/90 to-transparent" />
-        <div className="absolute inset-y-0 right-0 w-[46%] bg-gradient-to-l from-background via-background/90 to-transparent" />
-        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/95 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-background via-background/95 to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-[30%] md:w-[46%] bg-gradient-to-r from-background via-background/90 to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-[30%] md:w-[46%] bg-gradient-to-l from-background via-background/90 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-28 md:h-44 bg-gradient-to-b from-background via-background/95 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-48 md:h-72 bg-gradient-to-t from-background via-background/95 to-transparent" />
       </div>
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="section-padding relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center pt-24 text-center"
+        className="section-padding relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-4 pt-20 md:pt-24 text-center"
       >
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -62,7 +62,7 @@ const HeroSection = () => {
         >
           Hello, I'm
         </motion.p>
-        <h1 className="mb-6 min-h-[1.2em] font-display text-5xl font-bold leading-tight text-foreground md:text-6xl lg:text-7xl">
+        <h1 className="mb-6 min-h-[1.2em] font-display text-3xl font-bold leading-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
           <span className="gradient-text">{typedName}</span>
           <span className="ml-1 inline-block animate-pulse text-primary">|</span>
         </h1>
