@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send } from "lucide-react";
+import { Send, Coffee } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 
@@ -47,10 +47,21 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="font-display text-4xl md:text-5xl font-bold text-center mb-16"
+          className="font-display text-4xl md:text-5xl font-bold text-center mb-6"
         >
           Get In <span className="gradient-text">Touch</span>
         </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="text-center font-body text-muted-foreground mb-12 flex items-center justify-center gap-2"
+        >
+          <Coffee size={18} className="text-primary" />
+          Let's drink some coffee and get to know each other better
+        </motion.p>
 
         <motion.form
           onSubmit={handleSubmit}

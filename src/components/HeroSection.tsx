@@ -62,7 +62,7 @@ const HeroSection = () => {
         >
           Hello, I'm
         </motion.p>
-        <h1 className="mb-6 min-h-[1.2em] font-display text-5xl font-bold leading-tight text-foreground md:text-6xl lg:text-7xl">
+        <h1 className="mb-6 min-h-[1.2em] font-display text-3xl font-bold leading-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
           <span className="gradient-text">{typedName}</span>
           <span className="ml-1 inline-block animate-pulse text-primary">|</span>
         </h1>

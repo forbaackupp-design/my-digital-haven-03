@@ -1,9 +1,10 @@
-import { Github, Linkedin, Code2 } from "lucide-react";
+import { Github, Linkedin, Code2, Mail } from "lucide-react";
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/sh4dowedsoul", label: "GitHub" },
   { icon: Linkedin, href: "https://www.linkedin.com/in/kishan-pandey2008", label: "LinkedIn" },
   { icon: Code2, href: "https://leetcode.com/u/shadowedsoul/", label: "LeetCode" },
+  { icon: Mail, href: "mailto:infernokishan@gmail.com", label: "Email" },
 ];
 
 const Footer = () => (
