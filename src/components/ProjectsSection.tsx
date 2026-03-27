@@ -19,7 +19,7 @@ const projects = [
   {
     title: "Phishing URL Detector",
     description:
-      "A Python-based cybersecurity tool designed to identify phishing URLs by analyzing features such as URL length, special characters, domain structure, and suspicious patterns. The system helps detect potentially malicious links and prevents users from falling victim to phishing attacks.",
+      "A Python-based tool that detects phishing URLs by analyzing patterns, domain structure, and suspicious characteristics to identify malicious links.",
     tags: ["Python", "Cybersecurity", "Networking"],
     inProgress: true,
   },
