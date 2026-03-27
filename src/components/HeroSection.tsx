@@ -42,10 +42,10 @@ const HeroSection = () => {
           fetchPriority="high"
         />
         <div className="absolute inset-0 bg-background/50" />
-        <div className="absolute inset-y-0 left-0 w-[46%] bg-gradient-to-r from-background via-background/90 to-transparent" />
-        <div className="absolute inset-y-0 right-0 w-[46%] bg-gradient-to-l from-background via-background/90 to-transparent" />
-        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/95 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-background via-background/95 to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-[30%] md:w-[46%] bg-gradient-to-r from-background via-background/90 to-transparent" />
+        <div className="absolute inset-y-0 right-0 w-[30%] md:w-[46%] bg-gradient-to-l from-background via-background/90 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-28 md:h-44 bg-gradient-to-b from-background via-background/95 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-48 md:h-72 bg-gradient-to-t from-background via-background/95 to-transparent" />
       </div>
 
       <motion.div
