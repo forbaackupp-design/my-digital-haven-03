@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Send, Coffee } from "lucide-react";
+import { Send, Coffee, ChevronUp, ChevronDown } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 
@@ -14,6 +14,34 @@ const ContactSection = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [mobileNo, setMobileNo] = useState(0);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const MAX_MOBILE = 9999999999;
+
+  const stopCounting = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  }, []);
+
+  const startCounting = useCallback((direction: "up" | "down") => {
+    stopCounting();
+    const step = direction === "up" ? 1 : -1;
+    intervalRef.current = setInterval(() => {
+      setMobileNo((prev) => {
+        const next = prev + step;
+        if (next < 0) return 0;
+        if (next > MAX_MOBILE) return MAX_MOBILE;
+        return next;
+      });
+    }, 100);
+  }, [stopCounting]);
+
+  useEffect(() => {
+    return () => stopCounting();
+  }, [stopCounting]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -93,6 +121,54 @@ const ContactSection = () => {
               )}
             </div>
           ))}
+
+          {/* TEMPORARY TESTING: Mobile Number Counter */}
+          <div>
+            <label
+              htmlFor="mobileNo"
+              className="block font-body text-sm font-medium text-foreground mb-2"
+            >
+              Mobile Number
+            </label>
+            <div className="relative flex items-center">
+              <input
+                id="mobileNo"
+                name="mobileNo"
+                type="text"
+                readOnly
+                value={mobileNo}
+                className="w-full h-12 px-4 pr-12 rounded-xl bg-card border border-border font-body text-foreground placeholder:text-muted-foreground focus:outline-none glow-input transition-shadow"
+                placeholder="Mobile number"
+              />
+              <div className="absolute right-2 flex flex-col gap-0.5">
+                <button
+                  type="button"
+                  onMouseDown={() => startCounting("up")}
+                  onMouseUp={stopCounting}
+                  onMouseLeave={stopCounting}
+                  onTouchStart={() => startCounting("up")}
+                  onTouchEnd={stopCounting}
+                  onClick={() => setMobileNo((p) => Math.min(p + 1, MAX_MOBILE))}
+                  className="p-0.5 rounded hover:bg-accent transition-colors"
+                >
+                  <ChevronUp size={14} className="text-muted-foreground" />
+                </button>
+                <button
+                  type="button"
+                  onMouseDown={() => startCounting("down")}
+                  onMouseUp={stopCounting}
+                  onMouseLeave={stopCounting}
+                  onTouchStart={() => startCounting("down")}
+                  onTouchEnd={stopCounting}
+                  onClick={() => setMobileNo((p) => Math.max(p - 1, 0))}
+                  className="p-0.5 rounded hover:bg-accent transition-colors"
+                >
+                  <ChevronDown size={14} className="text-muted-foreground" />
+                </button>
+              </div>
+            </div>
+          </div>
+          {/* END TEMPORARY TESTING */}
 
           <div>
             <label
