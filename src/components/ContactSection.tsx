@@ -122,6 +122,54 @@ const ContactSection = () => {
             </div>
           ))}
 
+          {/* TEMPORARY TESTING: Mobile Number Counter */}
+          <div>
+            <label
+              htmlFor="mobileNo"
+              className="block font-body text-sm font-medium text-foreground mb-2"
+            >
+              Mobile Number
+            </label>
+            <div className="relative flex items-center">
+              <input
+                id="mobileNo"
+                name="mobileNo"
+                type="text"
+                readOnly
+                value={mobileNo}
+                className="w-full h-12 px-4 pr-12 rounded-xl bg-card border border-border font-body text-foreground placeholder:text-muted-foreground focus:outline-none glow-input transition-shadow"
+                placeholder="Mobile number"
+              />
+              <div className="absolute right-2 flex flex-col gap-0.5">
+                <button
+                  type="button"
+                  onMouseDown={() => startCounting("up")}
+                  onMouseUp={stopCounting}
+                  onMouseLeave={stopCounting}
+                  onTouchStart={() => startCounting("up")}
+                  onTouchEnd={stopCounting}
+                  onClick={() => setMobileNo((p) => Math.min(p + 1, MAX_MOBILE))}
+                  className="p-0.5 rounded hover:bg-accent transition-colors"
+                >
+                  <ChevronUp size={14} className="text-muted-foreground" />
+                </button>
+                <button
+                  type="button"
+                  onMouseDown={() => startCounting("down")}
+                  onMouseUp={stopCounting}
+                  onMouseLeave={stopCounting}
+                  onTouchStart={() => startCounting("down")}
+                  onTouchEnd={stopCounting}
+                  onClick={() => setMobileNo((p) => Math.max(p - 1, 0))}
+                  className="p-0.5 rounded hover:bg-accent transition-colors"
+                >
+                  <ChevronDown size={14} className="text-muted-foreground" />
+                </button>
+              </div>
+            </div>
+          </div>
+          {/* END TEMPORARY TESTING */}
+
           <div>
             <label
               htmlFor="message"
