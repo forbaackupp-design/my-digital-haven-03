@@ -14,34 +14,6 @@ const ContactSection = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [mobileNo, setMobileNo] = useState(0);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  const MAX_MOBILE = 9999999999;
-
-  const stopCounting = useCallback(() => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-  }, []);
-
-  const startCounting = useCallback((direction: "up" | "down") => {
-    stopCounting();
-    const step = direction === "up" ? 1 : -1;
-    intervalRef.current = setInterval(() => {
-      setMobileNo((prev) => {
-        const next = prev + step;
-        if (next < 0) return 0;
-        if (next > MAX_MOBILE) return MAX_MOBILE;
-        return next;
-      });
-    }, 100);
-  }, [stopCounting]);
-
-  useEffect(() => {
-    return () => stopCounting();
-  }, [stopCounting]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
